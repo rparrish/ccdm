@@ -1,5 +1,5 @@
 Package: ccdm
-Title: This R Package Facilitates The Use of the Core Clinical Data Model.
+Title: This R Package Facilitates The Use of the Core Clinical Data Model
 Version: 0.1
 Authors@R:
     person("Rollie", "Parrish", , "rparrish@flightweb.com", role = c("aut", "cre"),
