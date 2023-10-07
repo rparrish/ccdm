@@ -25,6 +25,8 @@
 
 read_sql = function(file_name) {
 
+    # ToDo: testthat filename exists, ends in .sql ?
+
     x <- readLines(file_name)
 
     x <- gsub("\t+", " ", x)        # Replace tabs with spaces
@@ -36,6 +38,8 @@ read_sql = function(file_name) {
     x <- gsub("/\\*.*?\\*/", "", x) # Remove multiline comments (cannot be nested)
     x <- gsub("^\\s+", "", x)       # Remove leading whitespace (leftover from multiline comments)
     x <- gsub("[ ]+", " ", x)       # Collapse multiple spaces to a single space
+
+    # ToDo: testthat x is valid SQL?
 
     return(x)
 
