@@ -1,0 +1,10 @@
+pandoc: 2.19.2
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles:
+  ccdm: ccdm.html
+last_built: 2023-10-07T17:33Z
+urls:
+  reference: https://rparrish.github.io/ccdm/reference
+  article: https://rparrish.github.io/ccdm/articles
+
