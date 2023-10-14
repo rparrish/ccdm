@@ -5,3 +5,6 @@
 ^docs$
 ^pkgdown$
 ^\.github$
+^\.Data$
+^\.SQL$
+

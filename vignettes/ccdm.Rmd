@@ -7,16 +7,42 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r}
+#| include: FALSE
+ 
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 ```
 
-Does this work?
 
+```{r}
+#| label: setup
+#| eval: false
 
-```{r setup}
 library(ccdm)
+library(duckdb)
+library(dplyr)
+
+conn <- dbConnect(duckdb())
+
+dbListTables(conn)
+
+# Update the underlying tables for CoreCDM 
+update_CoreCDM(conn) 
+
+#create the main CoreCDM tables
+create_CoreCDM(conn) 
+
+encounters <- tbl(conn, "encounters")
+#patients <- tbl(conn, "patients")
+#admissions <- tbl(conn, "admissions")
+
+encounters %>%
+    group_by(subject_id) %>% count(sort = TRUE)
+
+dbDisconnect(conn, shutdown = TRUE)
+
 ```
+
