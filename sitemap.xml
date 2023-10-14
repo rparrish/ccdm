@@ -25,9 +25,15 @@
     <loc>https://rparrish.github.io/ccdm/index.html</loc>
   </url>
   <url>
+    <loc>https://rparrish.github.io/ccdm/reference/create_CoreCDM.html</loc>
+  </url>
+  <url>
     <loc>https://rparrish.github.io/ccdm/reference/index.html</loc>
   </url>
   <url>
     <loc>https://rparrish.github.io/ccdm/reference/read_sql.html</loc>
+  </url>
+  <url>
+    <loc>https://rparrish.github.io/ccdm/reference/update_CoreCDM.html</loc>
   </url>
 </urlset>
