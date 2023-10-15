@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   CoreCDM: CoreCDM.html
   ccdm: ccdm.html
-last_built: 2023-10-14T18:59Z
+last_built: 2023-10-15T14:57Z
 urls:
   reference: https://rparrish.github.io/ccdm/reference
   article: https://rparrish.github.io/ccdm/articles

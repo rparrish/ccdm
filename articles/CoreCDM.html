@@ -99,26 +99,31 @@ CDW architecture:</p>
 <ul>
 <li><p><strong>Different primary keys</strong>: The existing main
 databases all use different primary keys, which makes it more difficult
-to join Synergy data with Clarity data for example. <strong>Core
-CDM</strong> uses ‘PAT_ENC_CSN_ID’ as the primary key for nearly all
+to join Unity data with Lucidity data for example. <strong>Core
+CDM</strong> uses ‘PAT_ENC_SID’ as the primary key for nearly all
 tables.</p></li>
-<li><p><strong>Data delays</strong>: While EpicClarity is updated daily
-for the previous 24hrs, the other main databases have a delayed refresh
+<li><p><strong>Data delays</strong>: While SagaLucidity is updated daily
+for the previous 24hrs, other CDW databases have a delayed refresh
 cadence that generally requires the account coding to be complete, which
-can be 3-7 days after discharge.<br><strong>Core CDM</strong> is updated every morning at 7am with the data
-from the previous 24 hours, including current admissions and discharges
-BEFORE coding is complete. This means that the same data model can be
-used for retrospective projects based on coding as well as more timely
-projects based on Epic documentation and clinical data.</p></li>
+can be 3-7 days after discharge.</p></li>
+</ul>
+<p><strong>Core CDM</strong> is updated every morning at 7am with the
+data from the previous 24 hours, including current admissions and
+discharges BEFORE coding is complete. This means that the same data
+model can be used for retrospective projects based on coding as well as
+more timely projects based on Saga documentation and clinical data.</p>
+<ul>
 <li>
-<p><strong>Non-standard naming conventions</strong>: Tables in
-EpicClarity, Synergy, Callisto, Caboodle, CPS datamarts and other
+<strong>Non-standard naming conventions</strong>: Tables in
+SagaLucidity, Unity, Marimba, Canoodle, CPS datamarts and other
 databases use different naming conventions for the same data fields and
 data types. In addition, the column names frequently are named
 differently than the data types (ie. columns with <code>_TIME</code>
 actually have dates, columns with <code>_DATE</code> have datetime
 values, foreign keys are character columns in one table and numeric in
-another etc.)<br><strong>Core CCDM</strong> uses a controlled vocabulary where:</p>
+another etc.)</li>
+</ul>
+<p><strong>Core CCDM</strong> uses a controlled vocabulary where:</p>
 <ul>
 <li>date fields end in <code>_DT</code> in ISO format</li>
 <li>datetime fields end in <code>_DTS</code> in ISO format</li>
@@ -128,19 +133,14 @@ another etc.)<br><strong>Core CCDM</strong> uses a controlled vocabulary where:<
 </li>
 <li>Text keys end in <code>_CD</code>
 </li>
-<li>Name fields end in <code>_NAME</code>
-</li>
 </ul>
-</li>
-</ul>
-<div class="section level2">
-<h2 id="entity-relationship-diagram-erd">Entity Relationship Diagram (ERD)<a class="anchor" aria-label="anchor" href="#entity-relationship-diagram-erd"></a>
-</h2>
-<div class="figure">
-<img src="CoreCDM_ERD.png" alt=""><p class="caption">CoreCDM ER Diagram</p>
-</div>
-</div>
-  </main>
+<!--
+## Entity Relationship Diagram (ERD)
+
+
+
+![CoreCDM ER Diagram](CoreCDM_ERD.png)
+--></main>
 </div>
 
 
