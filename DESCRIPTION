@@ -16,9 +16,15 @@ Suggests:
     fs,
     here, 
     cli,
-    DBI,
     logger,
     purrr,
+    glue,
+    prettyunits,
     stringr
+Depends:
+    DBI, 
+    dbplyr, 
+    dplyr, 
+    odbc
 VignetteBuilder: knitr
 URL: https://rparrish.github.io/ccdm/
