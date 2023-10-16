@@ -32,23 +32,24 @@ __Core CDM__ addresses a few issues with the existing CDW architecture:
  
 * __Different primary keys__: 
 The existing main databases all use different primary keys, 
-which makes it more difficult to join Synergy data with Clarity data for example.
+which makes it more difficult to join Unity data with Lucidity data for example.
  __Core CDM__ uses
-  'PAT_ENC_CSN_ID' as the primary key for nearly all tables.  
+  'PAT_ENC_SID' as the primary key for nearly all tables.  
 
 * __Data delays__: 
-While EpicClarity is updated daily for the previous 24hrs, 
-the other main databases have a delayed refresh cadence 
+While SagaLucidity is updated daily for the previous 24hrs, 
+other CDW databases have a delayed refresh cadence 
 that generally requires the account coding to be complete, 
 which can be 3-7 days after discharge.  
+
  __Core CDM__ is updated every morning at 7am 
 with the data from the previous 24 hours, 
 including current admissions and discharges BEFORE coding is complete. 
 This means that the same data model can be used for retrospective projects based on coding 
-as well as more timely projects based on Epic documentation and clinical data. 
+as well as more timely projects based on Saga documentation and clinical data. 
 
 * __Non-standard naming conventions__: 
-Tables in EpicClarity, Synergy, Callisto, Caboodle, CPS datamarts 
+Tables in SagaLucidity, Unity, Marimba, Canoodle, CPS datamarts 
 and other databases 
 use different naming conventions for the same data fields and data types. 
 In addition, the column names frequently are named differently than the data types (ie. 
@@ -56,6 +57,7 @@ columns with `_TIME` actually have dates,
 columns with `_DATE` have datetime values, 
 foreign keys are character columns in one table and numeric in another
 etc.)  
+
  __Core CCDM__
 uses a controlled vocabulary where:  
 
@@ -64,12 +66,11 @@ uses a controlled vocabulary where:
    - Boolean fields end in `_FLAG` and are coded to 0/1  
    - Numeric keys end in `_ID`
    - Text keys end in `_CD`
-   - Name fields end in `_NAME`
 
-
-
+<!--
 ## Entity Relationship Diagram (ERD)
 
 
 
 ![CoreCDM ER Diagram](CoreCDM_ERD.png)
+-->
