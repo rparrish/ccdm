@@ -1,11 +1,10 @@
-pandoc: 2.19.2
-pkgdown: 2.0.7
+pandoc: 3.1.11
+pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
-  CoreCDM: CoreCDM.html
   ccdm: ccdm.html
-last_built: 2023-10-16T00:59Z
+  CoreCDM: CoreCDM.html
+last_built: 2025-07-21T13:14Z
 urls:
   reference: https://rparrish.github.io/ccdm/reference
   article: https://rparrish.github.io/ccdm/articles
-
