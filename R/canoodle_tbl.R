@@ -33,21 +33,37 @@ canoodle_tbl <- function(conn, name = NA) {
     if(is.na(name)) {
         paste0("View not specified.\nHere's a list of available Canoodle tables:\n\n")
 
+        table_info <-
+            DBI::dbGetQuery(conn, "SELECT * FROM metastore.INFORMATION_SCHEMA.TABLES;") %>%
+            #dplyr::filter(table_schema == "mimic_iv_demo") %>%
+            dplyr::filter(table_type == "MANAGED") %>%
+            #dplyr::mutate(size = prettyunits::pretty_bytes(bytes)) %>%
+            dplyr::mutate(comment = stringr::str_trunc(comment, 80)) %>%
+            dplyr::mutate(name = glue::glue("metastore.{table_schema}.{table_name}",
+                          .con = conn)) %>%
+            #dplyr::filter(!is.na(table_owner)) %>%
+            dplyr::select(
+                name,
+                table_schema, table_name, table_type,
+                          #row_count, size,
+                          last_altered, comment)
+
+        table_details <-
+            DBI::dbGetQuery(conn, "DESCRIBE DETAIL metastore.ccdm.lab") %>%
+            dplyr::mutate(size = prettyunits::pretty_bytes(sizeInBytes, "6")) %>%
+            dplyr::select(name, size)
+
         results <-
-            DBI::dbGetQuery(conn, "SELECT * FROM MY_DB.INFORMATION_SCHEMA.TABLES;") %>%
-            dplyr::filter(TABLE_SCHEMA == "STG_CANOODLE") %>%
-            dplyr::filter(TABLE_TYPE == "BASE TABLE") %>%
-            dplyr::mutate(SIZE = prettyunits::pretty_bytes(BYTES)) %>%
-            dplyr::mutate(COMMENT = stringr::str_trunc(COMMENT, 80)) %>%
-            dplyr::filter(!is.na(TABLE_OWNER)) %>%
-            dplyr::select(TABLE_NAME, TABLE_TYPE, ROW_COUNT, SIZE, LAST_ALTERED, COMMENT)
+            table_info %>%
+            inner_join(table_details, join_by(name)) %>%
+            select(name, size, last_altered, comment)
 
         return(results)
 
     }
 
     # get the tbl
-    dplyr::tbl(conn, dbplyr::in_schema(sql("MY_DB.STG_CANOODLE"), name))
+    dplyr::tbl(conn, in_catalog("metastore", "ccdm", name))
 
 }
 

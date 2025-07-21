@@ -5,7 +5,11 @@
 
 get_ccdm_connection <- function() {
 
-    conn <- duckdb::duckdb(here::here("Data/ccdm.db"))
+
+
+    drv <- duckdb::duckdb(here::here("Data/ccdm.db"))
+
+    conn <- dbConnect(drv)
 
     conn
 }
