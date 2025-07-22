@@ -1,7 +1,7 @@
 
 
-drv <- duckdb("Data/mimic_iv_demo.db")
-conn <- dbConnect(drv)
+#drv <- duckdb("Data/mimic_iv_demo.db")
+#conn <- dbConnect(drv)
 #conn <- dbConnect(spark_connect(method = "databricks"))
 
 create_view_from_location <- function(
@@ -82,6 +82,7 @@ CREATE SCHEMA IF NOT EXISTS ed", .con = conn)
 
 }
 
+if(1==0) {
 create_view_from_location(conn, location = "Data/mimic-iv-demo/ed/triage.csv.gz")
 
 
@@ -105,3 +106,4 @@ table_catalog, table_schema, table_name
 duckdb_shutdown(drv)
 dbDisconnect(conn)
 
+}
